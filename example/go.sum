@@ -1,3 +1,5 @@
+github.com/boschresearch/assets2036go v0.3.2 h1:H34TkUQwEA6iTMr4JCHJjvfdOEcTIQt1QuVv9JTtRe4=
+github.com/boschresearch/assets2036go v0.3.2/go.mod h1:+/J11cgEVTXP8Q4wNgRdCdDk7UnnlGLIne1A5jpJTQQ=
 github.com/eclipse/paho.mqtt.golang v1.2.0 h1:1F8mhG9+aO5/xpdtFkW4SxOJB67ukuDC3t2y2qayIX0=
 github.com/eclipse/paho.mqtt.golang v1.2.0/go.mod h1:H9keYFcgq3Qr5OUJm/JZI/i6U7joQ8SYLhZwfeOo6Ts=
 github.com/kr/pretty v0.2.1 h1:Fmg33tUaq4/8ym9TJN1x7sLJnHVwhP33CNkpYV/7rwI=
