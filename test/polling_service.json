@@ -1,0 +1,23 @@
+{
+    "name": "polling_service",
+    "description" : "operations and properties to control a polling service, for example a service to poll sensor values", 
+    "revision": "0.0.1",
+    "properties": {
+        "active": {
+            "type": "boolean", 
+            "description": "is true, when the polling service currently runs"
+        }
+    }, 
+    "operations": {
+        "startPollingLoop": {
+            "parameters": {
+                "cycleTimeMs": {
+                    "type": "number"
+                }
+            }
+        }, 
+        "stopPollingLoop": {
+            "parameters": {}
+        }
+    }
+}

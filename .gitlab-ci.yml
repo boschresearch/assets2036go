@@ -1,0 +1,11 @@
+stages: 
+  - test
+
+test: 
+  stage: test
+  image: golang:1.14
+  script: 
+    - 'cd test'
+    - 'go test'
+  variables:
+    GIT_SSL_NO_VERIFY: 'true'
