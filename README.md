@@ -15,27 +15,17 @@
 
 ## Description
 
-Use **assets2036go** to your go-app communicate with other assets following the new leightweight asset administration shell standard using MQTT. 
+Use **assets2036go** to your go-app communicate with other assets following the new leightweight asset administration shell standard using MQTT, especially on Arena2036. 
 
 ## Getting started
 
-### Using the lib via sources 
+### Howto use the lib
 
-copy the directory assets2036go/assets2036go to any target directory you want to have it [myAssetsLibDir]. 
+Add line
 
-Then in the go.mod of your project add the line 
-replace bosch.com/assets2036go v0.1.9 => [myAssetsLibDir]. 
+require github.com/boschresearch/assets2036go v0.3.2
 
-As an example see the go.mod of [assets2036go/example/go.mod](./example/go.mod)
-
-
-### Using the lib via golangs dependency system
-
-Probably the best entry point is the example program example_1. You will learn how to create an asset, implement a submodel operation, set submodel properties, then create an asset proxy, call the operation or read the property. 
-
-For more example you can have a look into the unit tests in the package assets2036gotest. 
-
-For questions or problems: thomas.jung6@de.bosch.com
+to your go.mod file. 
 
 ## Dependencies
 
