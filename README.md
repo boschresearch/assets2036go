@@ -5,8 +5,6 @@
   - [Table of content](#table-of-content)
   - [Description](#description)
   - [Getting started](#getting-started)
-    - [Using the lib via sources](#using-the-lib-via-sources)
-    - [Using the lib via golangs dependency system](#using-the-lib-via-golangs-dependency-system)
   - [Dependencies](#dependencies)
   - [Remarks](#remarks)
   - [Authors](#authors)
@@ -15,17 +13,25 @@
 
 ## Description
 
-Use **assets2036go** to your go-app communicate with other assets following the new leightweight asset administration shell standard using MQTT, especially on Arena2036. 
+Use **assets2036go** to communicate with other assets following the assets2036 standard used on Arena2036.
+
+assets2036 is based on very lean MQTT and JSON conventions - you can even participate using only standard MQTT and JSON libs. This is a convenience library, simplifying participation with any go software. 
 
 ## Getting started
 
-### Howto use the lib
+Simply add the line
 
-Add line
-
-require github.com/boschresearch/assets2036go v0.3.2
+    require github.com/boschresearch/assets2036go v0.3.2
 
 to your go.mod file. 
+
+Enter 
+
+    go mod download
+
+to get the lib sources. 
+
+See ./example/example_1.go for details of usage. 
 
 ## Dependencies
 
