@@ -48,7 +48,7 @@ See ./example/example_1.go for details of usage.
 ## License
 
 assets2036go is open-sourced under the Apache-2.0 license. See the LICENSE file for details.
-For a list of other open source components included in UUV Simulator, see the file 3rd-party-licenses.txt.
+For a list of other open source components assets2036go depends on, see [Dependencies](#dependencies). 
 
 ## Acknowledgments
 
