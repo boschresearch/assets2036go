@@ -43,7 +43,7 @@ See ./example/example_1.go for details of usage.
 
 ## Authors
 
-[Thomas Jung](mailto:thomas.jung6@de.bosch.com)
+[Thomas Jung](https://github.com/thomasjosefjung)
 
 ## License
 
