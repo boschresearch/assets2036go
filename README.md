@@ -13,7 +13,7 @@
 
 ## Description
 
-Use **assets2036go** to communicate with other assets following the assets2036 standard used on Arena2036.
+Use **assets2036go** to communicate with other assets following the assets2036 standard used on [Arena2036](https://www.arena2036.de/).
 
 assets2036 is based on very lean MQTT and JSON conventions - you can even participate using only standard MQTT and JSON libs. This is a convenience library, simplifying participation with any go software. 
 
