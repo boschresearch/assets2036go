@@ -24,8 +24,8 @@ func logg() *logger {
 }
 
 // SwitchOnLogging switches on or off logging for the assets2036 lib
-func (logger *logger) SwitchOnLogging(on bool) {
-	logger._log = on
+func SwitchOnLogging(on bool) {
+	_logger._log = on
 }
 
 // Printf calls Output to print to the standard logger.
