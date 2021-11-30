@@ -1,7 +1,5 @@
 module github.com/boschresearch/assets2036go
 
-// module arena2036-infrastructure.saz.bosch-si.com/JGT1SI/assets2036go
-
 go 1.14
 
 require (
