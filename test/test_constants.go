@@ -8,8 +8,8 @@ package assets2036gotest
 import "time"
 
 const (
-	testHostname = "192.168.100.3"
-	// testHostname = "broker.hivemq.com"
+	// testHostname = "192.168.100.3"
+	testHostname   = "broker.hivemq.com"
 	testPort       = 1883
 	testTimeout    = 2 * time.Second
 	testNamespace  = "testNamespace"
