@@ -334,7 +334,8 @@ func (mgr *AssetMgr) CreateAssetProxy(namespace, name string, submodelUrls ...st
 		mgr.mqttClient.Unsubscribe(k)
 	}
 
-	mgr.mqttClient.SubscribeMultiple(mgr.subscribedTopics, mgr.messageReceived)
+	token := mgr.mqttClient.SubscribeMultiple(mgr.subscribedTopics, mgr.messageReceived)
+	token.Wait()
 
 	return assetBase, nil
 }

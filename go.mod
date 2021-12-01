@@ -1,6 +1,6 @@
 module github.com/boschresearch/assets2036go
 
-go 1.14
+go 1.17
 
 require (
 	github.com/eclipse/paho.mqtt.golang v1.2.0

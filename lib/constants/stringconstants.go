@@ -37,7 +37,8 @@ const (
 	// PayloadPropEvTimestamp kjh
 	PayloadPropEvTimestamp = "timestamp"
 	// EnpointSubmodelURL is the url to the endpoint submodel description
-	EnpointSubmodelURL = "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/-/raw/master/_endpoint.json"
+	// EnpointSubmodelURL = "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/-/raw/master/_endpoint.json"
+	EnpointSubmodelURL = "https://raw.githubusercontent.com/boschresearch/assets2036-submodels/master/_endpoint.json"
 	// EndpointOperationNameShutdown is the name of the shutdown operation
 	EndpointOperationNameShutdown = "shutdown"
 	// EndpointOperationNamePing is the name of the ping operation
