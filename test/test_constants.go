@@ -9,7 +9,8 @@ import "time"
 
 const (
 	// testHostname = "192.168.100.3"
-	testHostname        = "broker.hivemq.com"
+	// testHostname        = "broker.hivemq.com"
+	testHostname        = "test.mosquitto.org"
 	testPort            = 1883
 	testTimeout         = 20 * time.Second
 	testNamespace       = "testNamespace"
