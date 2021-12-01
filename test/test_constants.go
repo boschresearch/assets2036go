@@ -9,12 +9,13 @@ import "time"
 
 const (
 	// testHostname = "192.168.100.3"
-	testHostname   = "broker.hivemq.com"
-	testPort       = 1883
-	testTimeout    = 2 * time.Second
-	testNamespace  = "testNamespace"
-	testAsset1Name = "testAsset1"
-	testAsset2Name = "testAsset2"
+	testHostname        = "broker.hivemq.com"
+	testPort            = 1883
+	testTimeout         = 20 * time.Second
+	testNamespace       = "testNamespace"
+	testAsset1Name      = "testAsset1"
+	testAsset2Name      = "testAsset2"
+	submodelUrlTemplate = "https://raw.githubusercontent.com/boschresearch/assets2036-submodels/master/%v"
 )
 
 // func checkPropertiesEquality(sollWert interface{}, istWert func() interface{}, timeout time.Duration) bool {

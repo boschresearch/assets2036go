@@ -6,6 +6,7 @@
 package assets2036gotest
 
 import (
+	"fmt"
 	"math/rand"
 	"testing"
 	"time"
@@ -28,7 +29,7 @@ func TestEvents(t *testing.T) {
 		t.Errorf("returned mgr was nil")
 	}
 
-	submodelURL := "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/raw/master/testmodel.json"
+	submodelURL := fmt.Sprintf(submodelUrlTemplate, "testmodel.json")
 
 	asset, _ := mgr.CreateAsset("arena2036", "gotest", submodelURL)
 	proxy, _ := mgr.CreateAssetProxy("arena2036", "gotest", submodelURL)

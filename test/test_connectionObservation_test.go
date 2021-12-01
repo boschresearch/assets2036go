@@ -6,6 +6,7 @@
 package assets2036gotest
 
 import (
+	"fmt"
 	"log"
 	"testing"
 	"time"
@@ -28,7 +29,7 @@ func TestConnectionObservation(t *testing.T) {
 		mgr.ExitWhenConnObsvFails = true
 	}
 
-	submodelURL := "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/raw/master/testmodel.json"
+	submodelURL := fmt.Sprintf(submodelUrlTemplate, "testmodel.json")
 
 	asset, err := mgr.CreateAsset("arena2036", "gotest", submodelURL)
 

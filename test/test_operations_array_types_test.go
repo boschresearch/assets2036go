@@ -6,6 +6,7 @@
 package assets2036gotest
 
 import (
+	"fmt"
 	"log"
 	"testing"
 	"time"
@@ -31,7 +32,7 @@ func TestOperationsArrayTypes(t *testing.T) {
 		t.Errorf("returned mgr was nil")
 	}
 
-	submodelURL := "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/raw/master/testmodel.json"
+	submodelURL := fmt.Sprintf(submodelUrlTemplate, "testmodel.json")
 
 	asset, err := mgr.CreateAsset(testNamespace, testAsset1Name, submodelURL)
 

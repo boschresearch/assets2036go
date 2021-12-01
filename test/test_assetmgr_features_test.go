@@ -6,6 +6,7 @@
 package assets2036gotest
 
 import (
+	"fmt"
 	"log"
 	"testing"
 
@@ -22,7 +23,7 @@ func TestFindAssetsBySubmodelName(t *testing.T) {
 		t.Error(err)
 	}
 
-	submodelURL := "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/-/raw/master/testmodel.json"
+	submodelURL := fmt.Sprintf(submodelUrlTemplate, "testmodel.json")
 
 	testasset, err := mgr.CreateAsset("arena2036", "gotest", submodelURL)
 
@@ -55,7 +56,7 @@ func TestFindAssetsBySubmodelURL(t *testing.T) {
 		t.Error(err)
 	}
 
-	submodelURL := "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/-/raw/master/testmodel.json"
+	submodelURL := fmt.Sprintf(submodelUrlTemplate, "testmodel.json")
 
 	testasset, err := mgr.CreateAsset("arena2036", "gotest", submodelURL)
 	if err != nil {
@@ -87,7 +88,7 @@ func TestFindEndpointAssets(t *testing.T) {
 		t.Error(err)
 	}
 
-	submodelURL := "https://arena2036-infrastructure.saz.bosch-si.com/arena2036_public/assets2036_submodels/-/raw/master/testmodel.json"
+	submodelURL := fmt.Sprintf(submodelUrlTemplate, "testmodel.json")
 
 	testasset, err := mgr.CreateAsset("arena2036", "gotest", submodelURL)
 
