@@ -14,6 +14,7 @@ authors:
 abstract: >-
   Go-library to participate in the
   assets2036-middleware used in Arena2036
+url: https://github.com/boschresearch/assets2036go
 keywords:
   - mqtt
   - json
