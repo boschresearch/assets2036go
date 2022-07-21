@@ -27,13 +27,12 @@ type JSONObj map[string]interface{}
 // The AssetMgr is the basic access point to the assets2036go library. Use it
 // to create assets and assetproxys for your assets environment
 type AssetMgr struct {
-	Host                  string
-	Port                  uint16
-	EndpointName          string
-	DefaultNamespace      string
-	EndpointAsset         *Asset
-	ExitWhenConnObsvFails bool
-	ConnObsvTimeout       time.Duration
+	MqttConnectionSettings MqttConnectionSettings
+	EndpointName           string
+	DefaultNamespace       string
+	EndpointAsset          *Asset
+	ExitWhenConnObsvFails  bool
+	ConnObsvTimeout        time.Duration
 
 	mqttClient          mqtt.Client
 	operationResponses  map[string]*submodelOperationResponse
@@ -44,23 +43,34 @@ type AssetMgr struct {
 	subscribedTopics    map[string]byte
 }
 
-// CreateAssetMgr creates an instance of AssetMgr and trys to connect it to the
+// CreateAssetManager creates an instance of AssetMgr and trys to connect it to the
 // given MQTT Server on host:port.
 func CreateAssetMgr(host string, port uint16, defaultNamespace, endpointName string, observeConnection bool) (*AssetMgr, error) {
+	mqttSettings := MqttConnectionSettings{
+		Host:         host,
+		Port:         port,
+		Authenticate: false,
+	}
+
+	return CreateAssetManager(mqttSettings, defaultNamespace, endpointName, observeConnection)
+}
+
+// CreateAssetMgr creates an instance of AssetMgr and trys to connect it to the
+// given MQTT Server on host:port.
+func CreateAssetManager(mqttConnSettings MqttConnectionSettings, defaultNamespace, endpointName string, observeConnection bool) (*AssetMgr, error) {
 	mgr := &AssetMgr{
-		Host:                  host,
-		Port:                  port,
-		EndpointName:          endpointName,
-		DefaultNamespace:      defaultNamespace,
-		ExitWhenConnObsvFails: true,
-		ConnObsvTimeout:       20 * time.Second,
-		operationResponses:    map[string]*submodelOperationResponse{},
-		messageHandlers:       map[string]messageHandler{},
-		subscribedTopics:      map[string]byte{},
+		MqttConnectionSettings: mqttConnSettings,
+		EndpointName:           endpointName,
+		DefaultNamespace:       defaultNamespace,
+		ExitWhenConnObsvFails:  true,
+		ConnObsvTimeout:        20 * time.Second,
+		operationResponses:     map[string]*submodelOperationResponse{},
+		messageHandlers:        map[string]messageHandler{},
+		subscribedTopics:       map[string]byte{},
 	}
 
 	// connect to mqtt broker
-	err := mgr.connect(host, port)
+	err := mgr.connect(mqttConnSettings)
 	if err != nil {
 		return nil, err
 	}
@@ -113,9 +123,15 @@ func (mgr *AssetMgr) SetShutdownCallback(cb func()) {
 	}
 }
 
-func (mgr *AssetMgr) connect(host string, port uint16) error {
+func (mgr *AssetMgr) connect(connSettings MqttConnectionSettings) error {
 	clientOptions := mqtt.NewClientOptions()
-	url := "tcp://" + host + ":" + strconv.FormatInt(int64(port), 10)
+
+	if connSettings.Authenticate {
+		clientOptions.Username = connSettings.Username
+		clientOptions.Password = connSettings.Password
+	}
+
+	url := "tcp://" + connSettings.Host + ":" + strconv.FormatInt(int64(connSettings.Port), 10)
 
 	newUUID := uuid.NewV4()
 	clientID := "assets2036go_" + newUUID.String() + "_" + mgr.EndpointName
@@ -138,7 +154,7 @@ func (mgr *AssetMgr) connect(host string, port uint16) error {
 	token := mgr.mqttClient.Connect()
 
 	if token.Wait() && token.Error() != nil {
-		return fmt.Errorf("unable to connect to MQTT broker at %v:%v", host, port)
+		return fmt.Errorf("unable to connect to MQTT broker at %v:%v", connSettings.Host, connSettings.Port)
 	}
 
 	return nil

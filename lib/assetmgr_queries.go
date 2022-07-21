@@ -19,7 +19,7 @@ import (
 
 func (mgr *AssetMgr) findAssetBy(topicToSubscribe Topic, filter func(topic string, payload []byte) bool) (assetTopics []Topic, err error) {
 	clientOptions := mqtt.NewClientOptions()
-	url := "tcp://" + mgr.Host + ":" + strconv.FormatInt(int64(mgr.Port), 10)
+	url := "tcp://" + mgr.MqttConnectionSettings.Host + ":" + strconv.FormatInt(int64(mgr.MqttConnectionSettings.Port), 10)
 
 	newUUID := uuid.NewV4()
 	clientID := "assets2036go_TempClient" + newUUID.String()
@@ -147,7 +147,7 @@ func (mgr *AssetMgr) FindAllEndpointAssets() (assetNames []Topic, err error) {
 // RemoveTraces removes all traces (i.e. retained messages) of the given asset from the broker
 func (mgr *AssetMgr) RemoveTraces(namespace, name string) {
 	clientOptions := mqtt.NewClientOptions()
-	url := "tcp://" + mgr.Host + ":" + strconv.FormatInt(int64(mgr.Port), 10)
+	url := "tcp://" + mgr.MqttConnectionSettings.Host + ":" + strconv.FormatInt(int64(mgr.MqttConnectionSettings.Port), 10)
 
 	newUUID := uuid.NewV4()
 	clientID := "assets2036go_TempClient" + newUUID.String()
@@ -195,7 +195,7 @@ func (mgr *AssetMgr) RemoveTraces(namespace, name string) {
 // GetSubmodelURLs returns the urls of all submodels supported by given asset
 func (mgr *AssetMgr) GetSubmodelURLs(assetNamespace, assetName string, waitForSubmodels time.Duration) []string {
 	clientOptions := mqtt.NewClientOptions()
-	url := "tcp://" + mgr.Host + ":" + strconv.FormatInt(int64(mgr.Port), 10)
+	url := "tcp://" + mgr.MqttConnectionSettings.Host + ":" + strconv.FormatInt(int64(mgr.MqttConnectionSettings.Port), 10)
 
 	newUUID := uuid.NewV4()
 	clientID := "assets2036go_TempClient" + newUUID.String()
